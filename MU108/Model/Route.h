@@ -14,6 +14,7 @@
 @interface Route : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * price;
 @property (nonatomic, retain) NSSet *buses;
 @end
 

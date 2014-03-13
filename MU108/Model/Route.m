@@ -14,5 +14,6 @@
 
 @dynamic name;
 @dynamic buses;
+@dynamic price;
 
 @end
