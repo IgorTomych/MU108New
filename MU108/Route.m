@@ -11,7 +11,12 @@
 @implementation Route
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
-    self.name = dictionary[@"route_title"];
+    
+    self = [self init];
+
+    if(self) {
+        self.name = dictionary[@"route_title"];
+    }
     
     return self;
 }
