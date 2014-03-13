@@ -11,11 +11,9 @@
 @implementation Route
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
-    Route* route = [[Route alloc] init];
+    self.name = dictionary[@"route_title"];
     
-    route.name = dictionary[@"route_title"];
-    
-    return route;
+    return self;
 }
 
 @end
