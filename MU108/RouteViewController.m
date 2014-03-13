@@ -11,6 +11,7 @@
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
 #import "MUAPI.h"
+#import "AppDelegate.h"
 
 @interface RouteViewController ()
 @property NSArray* routeData;
@@ -24,6 +25,26 @@
 {
     [super viewDidLoad];
     
+    AppDelegate* appDelagate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    self.context = appDelagate.context;
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Route" inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    
+    
+    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]]];
+    
+    self.resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.context sectionNameKeyPath:nil cacheName:@"Routes"];
+    self.resultsController.delegate = self;
+    
+    NSError* error;
+    
+    [self.resultsController performFetch:&error];
+
+    /*
     [[MUAPI sharedClient] getRoutes:^(NSArray *routes, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
@@ -34,11 +55,11 @@
         self.routeData = routes;
         [self.tableView reloadData];
     }];
+    */
     
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+//    [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +73,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.routeData.count;
+    NSInteger numberOfRows = 0;
+	
+    if ([[self.resultsController sections] count] > 0) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.resultsController sections] objectAtIndex:section];
+        numberOfRows = [sectionInfo numberOfObjects];
+    }
+    
+    return numberOfRows;
 }
 
 
@@ -62,10 +90,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Route* routeItem = self.routeData[indexPath.row];
+    Route* route = (Route*)[self.resultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = routeItem.name;
-    
+    cell.textLabel.text = route.name;
     return cell;
 }
 
@@ -85,4 +112,60 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"selected row index %@", indexPath);
 }
+
+
+#pragma mark - Result delegate
+
+/**
+ Delegate methods of NSFetchedResultsController to respond to additions, removals and so on.
+ */
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
+	[self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+	UITableView *tableView = self.tableView;
+	
+	switch(type) {
+		case NSFetchedResultsChangeInsert:
+			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+			
+		case NSFetchedResultsChangeDelete:
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+			
+		case NSFetchedResultsChangeUpdate:
+//			[self configureCell:(RecipeTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+			break;
+			
+		case NSFetchedResultsChangeMove:
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+	}
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+	switch(type) {
+		case NSFetchedResultsChangeInsert:
+			[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+			
+		case NSFetchedResultsChangeDelete:
+			[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+	}
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+	[self.tableView endUpdates];
+}
+
 @end

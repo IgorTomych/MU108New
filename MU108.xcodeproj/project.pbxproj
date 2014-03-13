@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1EC2F640193247528072CB25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64AD3E39E1EA4878825E519E /* libPods.a */; };
+		740352DD18D22CFE00A0DE9D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740352DC18D22CFE00A0DE9D /* CoreData.framework */; };
+		740352E018D2303A00A0DE9D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 740352DE18D2303A00A0DE9D /* Model.xcdatamodeld */; };
+		740352E318D230F500A0DE9D /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = 740352E218D230F500A0DE9D /* Bus.m */; };
+		740352E618D230F500A0DE9D /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 740352E518D230F500A0DE9D /* Route.m */; };
 		7424264C18C8EDC800005F18 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7424264B18C8EDC800005F18 /* LoginViewController.m */; };
 		7424266D18C8F6A600005F18 /* RoutesSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7424266C18C8F6A600005F18 /* RoutesSidePanelController.m */; };
 		74605C8A18B67E29006617A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74605C8918B67E29006617A6 /* Foundation.framework */; };
@@ -31,7 +35,6 @@
 		74CB784718C4FB1C006A4004 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CB784518C4FB1C006A4004 /* 1.png */; };
 		74CB784818C4FB1C006A4004 /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CB784618C4FB1C006A4004 /* 1@2x.png */; };
 		74CB784B18C4FD48006A4004 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CB784A18C4FD48006A4004 /* RouteViewController.m */; };
-		74CB784E18C50376006A4004 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CB784D18C50376006A4004 /* Route.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		64AD3E39E1EA4878825E519E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		740352DC18D22CFE00A0DE9D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		740352DF18D2303A00A0DE9D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		740352E118D230F500A0DE9D /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bus.h; path = Model/Bus.h; sourceTree = "<group>"; };
+		740352E218D230F500A0DE9D /* Bus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bus.m; path = Model/Bus.m; sourceTree = "<group>"; };
+		740352E418D230F500A0DE9D /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = Model/Route.h; sourceTree = "<group>"; };
+		740352E518D230F500A0DE9D /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = Model/Route.m; sourceTree = "<group>"; };
 		7424264A18C8EDC800005F18 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		7424264B18C8EDC800005F18 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7424266B18C8F6A600005F18 /* RoutesSidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesSidePanelController.h; sourceTree = "<group>"; };
@@ -81,8 +90,6 @@
 		74CB784618C4FB1C006A4004 /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
 		74CB784918C4FD48006A4004 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
 		74CB784A18C4FD48006A4004 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
-		74CB784C18C50376006A4004 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
-		74CB784D18C50376006A4004 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		FED6D603F94A42BDAE386B4B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				740352DD18D22CFE00A0DE9D /* CoreData.framework in Frameworks */,
 				74605C8C18B67E29006617A6 /* CoreGraphics.framework in Frameworks */,
 				74605C8E18B67E29006617A6 /* UIKit.framework in Frameworks */,
 				74605C8A18B67E29006617A6 /* Foundation.framework in Frameworks */,
@@ -141,6 +149,7 @@
 		74605C8818B67E29006617A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				740352DC18D22CFE00A0DE9D /* CoreData.framework */,
 				74605C8918B67E29006617A6 /* Foundation.framework */,
 				74605C8B18B67E29006617A6 /* CoreGraphics.framework */,
 				74605C8D18B67E29006617A6 /* UIKit.framework */,
@@ -172,6 +181,7 @@
 				7424264B18C8EDC800005F18 /* LoginViewController.m */,
 				7424266B18C8F6A600005F18 /* RoutesSidePanelController.h */,
 				7424266C18C8F6A600005F18 /* RoutesSidePanelController.m */,
+				740352DE18D2303A00A0DE9D /* Model.xcdatamodeld */,
 			);
 			path = MU108;
 			sourceTree = "<group>";
@@ -211,10 +221,12 @@
 		746C874C18CE3B75001A2E07 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				740352E418D230F500A0DE9D /* Route.h */,
+				740352E518D230F500A0DE9D /* Route.m */,
+				740352E118D230F500A0DE9D /* Bus.h */,
+				740352E218D230F500A0DE9D /* Bus.m */,
 				746C874D18CE3BE1001A2E07 /* MUAPI.h */,
 				746C874E18CE3BE1001A2E07 /* MUAPI.m */,
-				74CB784C18C50376006A4004 /* Route.h */,
-				74CB784D18C50376006A4004 /* Route.m */,
 				746C875018CE3DC3001A2E07 /* Config.h */,
 			);
 			name = Model;
@@ -354,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				740352E318D230F500A0DE9D /* Bus.m in Sources */,
 				7424264C18C8EDC800005F18 /* LoginViewController.m in Sources */,
 				7424266D18C8F6A600005F18 /* RoutesSidePanelController.m in Sources */,
 				74CB784418C4F575006A4004 /* RegisterViewController.m in Sources */,
@@ -362,8 +375,9 @@
 				74CB784B18C4FD48006A4004 /* RouteViewController.m in Sources */,
 				74605C9618B67E29006617A6 /* main.m in Sources */,
 				74605CBA18B67F81006617A6 /* User.m in Sources */,
+				740352E618D230F500A0DE9D /* Route.m in Sources */,
 				74605CBF18B6848F006617A6 /* MainViewController.m in Sources */,
-				74CB784E18C50376006A4004 /* Route.m in Sources */,
+				740352E018D2303A00A0DE9D /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +596,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		740352DE18D2303A00A0DE9D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				740352DF18D2303A00A0DE9D /* Model.xcdatamodel */,
+			);
+			currentVersion = 740352DF18D2303A00A0DE9D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74605C7E18B67E29006617A6 /* Project object */;
 }
