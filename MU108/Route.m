@@ -12,7 +12,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     
-    self = [self init];
+    self = [super init];
 
     if(self) {
         self.name = dictionary[@"route_title"];
