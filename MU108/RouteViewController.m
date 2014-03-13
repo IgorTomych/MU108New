@@ -62,15 +62,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-
-    if (indexPath.row == 42) {
-        cell.imageView.image = [UIImage imageNamed:@"1"];
-    }
-    else {
-        cell.imageView.image = nil;
-    }
+    Route* routeItem = self.routeData[indexPath.row];
     
-    cell.textLabel.text = self.routeData[indexPath.row][@"route_title"];
+    cell.textLabel.text = routeItem.name;
     
     return cell;
 }

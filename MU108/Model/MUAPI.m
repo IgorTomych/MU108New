@@ -8,6 +8,7 @@
 
 #import "MUAPI.h"
 #import <AFNetworking.h>
+#import "Route.h"
 
 @implementation MUAPI
 
@@ -28,8 +29,14 @@
     
     void (^successBlock)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray* routeData = (NSArray *)responseObject;
+        NSMutableArray* resultData = [[NSMutableArray alloc] init];
         
-        block(routeData, nil);
+        
+        for (NSDictionary* dictionary in routeData) {
+            [resultData addObject:[[Route alloc] initWithDictionary:dictionary]];
+        }
+        
+        block((NSArray *)resultData, nil);
     };
     
     void (^failBlock)(AFHTTPRequestOperation*, NSError*) = ^(AFHTTPRequestOperation *operation, NSError *error) {
