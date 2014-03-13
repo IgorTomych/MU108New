@@ -129,7 +129,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VgH-XR-EGh">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VgH-XR-EGh">
                                             <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -190,6 +190,7 @@
                 <navigationController storyboardIdentifier="centerViewController" definesPresentationContext="YES" id="jq1-fv-Xfx" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kym-l0-Cz6">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.41176474089999998" green="0.75294125079999996" blue="0.15686275059999999" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="cYs-KB-AIs" kind="relationship" relationship="rootViewController" id="ewp-RH-CNX"/>

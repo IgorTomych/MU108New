@@ -10,6 +10,7 @@
 #import "Route.h"
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
+#import "MUAPI.h"
 
 @interface RouteViewController ()
 @property NSArray* routeData;
@@ -23,22 +24,17 @@
 {
     [super viewDidLoad];
     
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-    
-    
-
-    [manager GET:@"http://marshrutki.com.ua/mu/routes.php" parameters:Nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [MBProgressHUD hideAllHUDsForView:self.tableView animated:YES];
-        self.routeData = (NSArray *)responseObject;
+    [[MUAPI sharedClient] getRoutes:^(NSArray *routes, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+            return;
+        }
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        self.routeData = routes;
         [self.tableView reloadData];
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        [MBProgressHUD hideAllHUDsForView:self.tableView animated:YES];
-        
-        NSLog(@"%@", error);
     }];
+    
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
@@ -63,12 +59,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BasicCell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+
+    if (indexPath.row == 42) {
+        cell.imageView.image = [UIImage imageNamed:@"1"];
+    }
+    else {
+        cell.imageView.image = nil;
+    }
     
     cell.textLabel.text = self.routeData[indexPath.row][@"route_title"];
     
     return cell;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    view.backgroundColor = [UIColor colorWithRed:0.42 green:0.75 blue:0.22 alpha:1];
+    
+    return view;
+}
+
 #pragma mark - Table view delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

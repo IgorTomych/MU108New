@@ -13,28 +13,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad    )
-    {
-        NSLog(@"Running on ipad");
-    }
+
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSError* error;
+        NSURL* url = [NSURL URLWithString:@"http://marshrutki.com.ua/mu/routes.php"];
+        NSString* jsonData = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+        
+        NSLog(@"finish downloading json");
+    });
     
     
+    NSLog(@"after block");
     
-    User* fistUser = [[User alloc] init];
-    fistUser.name = @"Igor";
     
-    fistUser.numberOfFriends = 42;
-    
-    fistUser->myPublicString = @"zzz";
-    
-    SEL myselector = @selector(add100point);
-    
-    [fistUser logOut];
-//    [fistUser add100point];
-    
-    if ([fistUser respondsToSelector:myselector]) {
-        [fistUser performSelector:myselector];
-    }
+//    __block int multiplayer = 2;
+//    
+//    int (^myBlock)(int) = ^(int num) {
+//
+//        int result = num * multiplayer;
+//        
+//        multiplayer = result;
+//        
+//        sleep(10);
+//        
+//        return result;
+//    };
+//    
+//
+//    
+//    int result = myBlock(10);
+//    
+//    NSLog(@"%d", result);
+
     
     return YES;
     
