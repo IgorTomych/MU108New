@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "RouteViewController.h"
 
-@interface MapViewController : UIViewController<MKMapViewDelegate>
+@interface MapViewController : UIViewController<MKMapViewDelegate, RouteViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext* context;
 @end

@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     
+    /*
     AppDelegate* appDelagate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     self.context = appDelagate.context;
 
@@ -37,6 +38,7 @@
     newRegion.span.longitudeDelta = 0.109863;
     
     [self.mapView setRegion:newRegion animated:YES];
+     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,5 +55,12 @@
 //    
 //    return nil;
 //}
+
+
+#pragma mark - Route View Delegate
+
+-(void)didSelectRoute {
+    NSLog(@"Маршрут был выбран!");
+}
 
 @end

@@ -44,7 +44,7 @@
     self.window.tintColor = [UIColor whiteColor];
     
     
-    /*
+    
     Bus* bus = [NSEntityDescription insertNewObjectForEntityForName:@"Bus" inManagedObjectContext:self.context];
     bus.name = @"415";
     
@@ -59,7 +59,7 @@
         NSLog(@"%@", error);
     }
     
-    */
+    
     return YES;
     
 }

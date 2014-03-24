@@ -112,7 +112,10 @@
 #pragma mark - Table view delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"selected row index %@", indexPath);
+
+    if ([self.routeDelegate respondsToSelector:@selector(didSelectRoute)]) {
+        [self.routeDelegate didSelectRoute];
+    }
 }
 
 
