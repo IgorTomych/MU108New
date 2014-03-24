@@ -34,6 +34,16 @@
     self.context = [[NSManagedObjectContext alloc] init];
     self.context.persistentStoreCoordinator = self.coordinator;
     
+    
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    [self.locationManager startUpdatingLocation];
+    
+    self.window.tintColor = [UIColor whiteColor];
+    
+    
     /*
     Bus* bus = [NSEntityDescription insertNewObjectForEntityForName:@"Bus" inManagedObjectContext:self.context];
     bus.name = @"415";
@@ -48,8 +58,8 @@
     if (error) {
         NSLog(@"%@", error);
     }
-    */
     
+    */
     return YES;
     
 }
@@ -72,6 +82,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+}
+
+#pragma mark - CLLocationManager delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    [self.locationManager stopUpdatingLocation];
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
 }
 
 @end

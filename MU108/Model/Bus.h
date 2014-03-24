@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 
-@interface Bus : NSManagedObject
+@interface Bus : NSManagedObject<MKAnnotation>
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSManagedObject *route;
+
 
 @end

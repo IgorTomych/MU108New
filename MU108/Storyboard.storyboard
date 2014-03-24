@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GlC-bb-ttQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GlC-bb-ttQ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="-212" y="1407"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="nsD-eO-vRK">
             <objects>
-                <viewController id="cYs-KB-AIs" sceneMemberID="viewController">
+                <viewController id="cYs-KB-AIs" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y8N-Ue-NRt"/>
                         <viewControllerLayoutGuide type="bottom" id="aR9-qy-Fxi"/>
@@ -158,9 +158,27 @@
                     <view key="view" contentMode="scaleToFill" id="Hj7-f0-Esl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ohl-vO-Baq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cYs-KB-AIs" id="9Xm-9a-Laj"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ohl-vO-Baq" secondAttribute="trailing" id="PWx-62-EMb"/>
+                            <constraint firstItem="ohl-vO-Baq" firstAttribute="leading" secondItem="Hj7-f0-Esl" secondAttribute="leading" id="UbQ-rY-b1h"/>
+                            <constraint firstItem="aR9-qy-Fxi" firstAttribute="top" secondItem="ohl-vO-Baq" secondAttribute="bottom" id="f4B-w5-Pfp"/>
+                            <constraint firstItem="ohl-vO-Baq" firstAttribute="top" secondItem="Hj7-f0-Esl" secondAttribute="top" id="zSD-BU-L3M"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gy2-es-EcK"/>
+                    <connections>
+                        <outlet property="mapView" destination="ohl-vO-Baq" id="Cge-Xu-Jug"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abr-kp-xbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

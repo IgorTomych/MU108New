@@ -25,6 +25,8 @@
 {
     [super viewDidLoad];
     
+    [NSFetchedResultsController deleteCacheWithName:@"Routes"];
+    
     AppDelegate* appDelagate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     self.context = appDelagate.context;
     

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1EC2F640193247528072CB25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64AD3E39E1EA4878825E519E /* libPods.a */; };
+		7401AF8318E0AB5C00704566 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7401AF8218E0AB5C00704566 /* MapKit.framework */; };
+		7401AF8618E0ABC300704566 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7401AF8518E0ABC300704566 /* MapViewController.m */; };
 		740352DD18D22CFE00A0DE9D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740352DC18D22CFE00A0DE9D /* CoreData.framework */; };
 		740352E018D2303A00A0DE9D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 740352DE18D2303A00A0DE9D /* Model.xcdatamodeld */; };
 		740352E318D230F500A0DE9D /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = 740352E218D230F500A0DE9D /* Bus.m */; };
@@ -30,6 +32,7 @@
 		74605CBC18B683E6006617A6 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74605CBB18B683E6006617A6 /* Storyboard.storyboard */; };
 		74605CBF18B6848F006617A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74605CBE18B6848F006617A6 /* MainViewController.m */; };
 		746C874F18CE3BE1001A2E07 /* MUAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 746C874E18CE3BE1001A2E07 /* MUAPI.m */; };
+		74A217AC18E0A5CB003BED30 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A217AB18E0A5CB003BED30 /* CoreLocation.framework */; };
 		74C4361018CE2D0100D9DCDD /* iPadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C4360F18CE2D0100D9DCDD /* iPadView.xib */; };
 		74CB784418C4F575006A4004 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CB784318C4F575006A4004 /* RegisterViewController.m */; };
 		74CB784718C4FB1C006A4004 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CB784518C4FB1C006A4004 /* 1.png */; };
@@ -49,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		64AD3E39E1EA4878825E519E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7401AF8218E0AB5C00704566 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7401AF8418E0ABC300704566 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		7401AF8518E0ABC300704566 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		740352DC18D22CFE00A0DE9D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		740352DF18D2303A00A0DE9D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		740352E118D230F500A0DE9D /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bus.h; path = Model/Bus.h; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 		746C874D18CE3BE1001A2E07 /* MUAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MUAPI.h; path = Model/MUAPI.h; sourceTree = "<group>"; };
 		746C874E18CE3BE1001A2E07 /* MUAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MUAPI.m; path = Model/MUAPI.m; sourceTree = "<group>"; };
 		746C875018CE3DC3001A2E07 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		74A217AB18E0A5CB003BED30 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		74C4360F18CE2D0100D9DCDD /* iPadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPadView.xib; sourceTree = "<group>"; };
 		74CB784218C4F575006A4004 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74CB784318C4F575006A4004 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
@@ -98,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7401AF8318E0AB5C00704566 /* MapKit.framework in Frameworks */,
+				74A217AC18E0A5CB003BED30 /* CoreLocation.framework in Frameworks */,
 				740352DD18D22CFE00A0DE9D /* CoreData.framework in Frameworks */,
 				74605C8C18B67E29006617A6 /* CoreGraphics.framework in Frameworks */,
 				74605C8E18B67E29006617A6 /* UIKit.framework in Frameworks */,
@@ -149,6 +158,8 @@
 		74605C8818B67E29006617A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7401AF8218E0AB5C00704566 /* MapKit.framework */,
+				74A217AB18E0A5CB003BED30 /* CoreLocation.framework */,
 				740352DC18D22CFE00A0DE9D /* CoreData.framework */,
 				74605C8918B67E29006617A6 /* Foundation.framework */,
 				74605C8B18B67E29006617A6 /* CoreGraphics.framework */,
@@ -182,6 +193,8 @@
 				7424266B18C8F6A600005F18 /* RoutesSidePanelController.h */,
 				7424266C18C8F6A600005F18 /* RoutesSidePanelController.m */,
 				740352DE18D2303A00A0DE9D /* Model.xcdatamodeld */,
+				7401AF8418E0ABC300704566 /* MapViewController.h */,
+				7401AF8518E0ABC300704566 /* MapViewController.m */,
 			);
 			path = MU108;
 			sourceTree = "<group>";
@@ -373,6 +386,7 @@
 				74605C9A18B67E29006617A6 /* AppDelegate.m in Sources */,
 				746C874F18CE3BE1001A2E07 /* MUAPI.m in Sources */,
 				74CB784B18C4FD48006A4004 /* RouteViewController.m in Sources */,
+				7401AF8618E0ABC300704566 /* MapViewController.m in Sources */,
 				74605C9618B67E29006617A6 /* main.m in Sources */,
 				74605CBA18B67F81006617A6 /* User.m in Sources */,
 				740352E618D230F500A0DE9D /* Route.m in Sources */,
